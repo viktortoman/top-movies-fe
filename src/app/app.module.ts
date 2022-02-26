@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { ToastModule } from 'primeng/toast';
 import { TableModule } from 'primeng/table';
@@ -11,6 +11,7 @@ import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { RatingModule } from 'primeng/rating';
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ErrorService } from "./Services/error.service";
@@ -46,7 +47,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
         BrowserAnimationsModule,
         ToastModule,
         RippleModule,
-        NgxPaginationModule
+        NgxPaginationModule,
+        RatingModule,
+        FormsModule
     ],
     providers: [
         {

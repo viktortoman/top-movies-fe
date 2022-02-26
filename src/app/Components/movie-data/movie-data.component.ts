@@ -12,6 +12,7 @@ export class MovieDataComponent implements AfterViewInit {
 
     movie: any;
     isLoading = true;
+    vote: number = 0;
 
     constructor(
         private config: DynamicDialogConfig,
@@ -23,6 +24,7 @@ export class MovieDataComponent implements AfterViewInit {
         this.isLoading = true;
         this.movieService.getMovie(this.config.data.movieId).subscribe((response: ApiResponseModel) => {
             this.movie = response;
+            this.vote = Math.round(this.movie.vote_average)
         })
     }
 

@@ -11,8 +11,15 @@
             <li class="list-group-item">Felnőtt kategória: {{ movie.adult ? 'Igen' : 'Nem' }}</li>
             <li class="list-group-item">Népszerűség: {{ movie.popularity }}</li>
             <li class="list-group-item">Kiadás dátuma: {{ movie.release_date }}</li>
-            <li class="list-group-item">Értékelés: {{ movie.vote_average }}</li>
-            <li class="list-group-item">Értékelések száma: {{ movie.vote_count }}</li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-3">Értékelés:</div>
+                    <div class="col">
+                        <p-rating [(ngModel)]="vote" [readonly]="true" [cancel]="false" [stars]="10"></p-rating>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">Értékelések száma: {{ movie.vote_count }} db</li>
             <li class="list-group-item">Státusz: {{ movie.status }}</li>
             <li class="list-group-item">Kategóriák: {{ getCategories(movie.genres)}}</li>
         </ul>
