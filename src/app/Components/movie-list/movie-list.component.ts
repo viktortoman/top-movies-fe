@@ -15,6 +15,7 @@ import {ApiListResponseModel} from "../../Models/ApiListResponseModel";
 })
 export class MovieListComponent implements OnInit {
 
+    page: number = 1;
     selectedMovies: MovieModel = new MovieModel();
     movie: MovieModel[] = [];
 
@@ -23,7 +24,7 @@ export class MovieListComponent implements OnInit {
     totalRecords: number = 0;
 
     filterParams: MovieListFilterModel = new MovieListFilterModel({
-        page: 1
+        page: this.page
     })
 
     constructor(
@@ -33,7 +34,6 @@ export class MovieListComponent implements OnInit {
 
     ngOnInit(): void {
         this.isLoading = true;
-
         this.getAllMovie();
     }
 
@@ -64,8 +64,9 @@ export class MovieListComponent implements OnInit {
 
     // On pagination event
     onPage(event: any) {
+        this.page = event;
         this.isLoading = true;
-        this.filterParams.page = event.first / event.rows + 1;
+        this.filterParams.page = this.page; //event.first / event.rows + 1;
 
         this.getAllMovie();
     }

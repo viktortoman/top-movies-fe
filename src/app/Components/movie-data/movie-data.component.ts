@@ -11,6 +11,7 @@ import {ApiResponseModel} from "../../Models/ApiResponseModel";
 export class MovieDataComponent implements AfterViewInit {
 
     movie: any;
+    isLoading = true;
 
     constructor(
         private config: DynamicDialogConfig,
@@ -19,6 +20,7 @@ export class MovieDataComponent implements AfterViewInit {
     }
 
     ngAfterViewInit(): void {
+        this.isLoading = true;
         this.movieService.getMovie(this.config.data.movieId).subscribe((response: ApiResponseModel) => {
             this.movie = response;
         })
